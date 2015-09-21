@@ -1,4 +1,4 @@
-var path    = require('path');
+var path = require('path');
 
 function Super(options) {
   this.options = options;
