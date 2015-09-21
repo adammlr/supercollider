@@ -7,20 +7,16 @@ function Super(options) {
 }
 
 Super.prototype = {
+  init: require('./lib/init'),
   parse: require('./lib/parse'),
   build: require('./lib/build'),
   adapter: require('./lib/adapter')
 }
 
-var s = new Super();
-s.adapter('sass', require(path.join(__dirname, 'adapters', 'sass')));
-s.adapter('js', require(path.join(__dirname, 'adapters', 'js')));
-
-module.exports = {
-  init: require('./lib/init')(s),
-  adapter: function() {
-    s.adapter.apply(s, arguments);
-  },
-  tree: s.tree,
-  Super: Super
+module.exports = function(options) {
+  var s = new Super(options);
+  s.adapter('sass', require(path.join(__dirname, 'adapters', 'sass')));
+  s.adapter('js', require(path.join(__dirname, 'adapters', 'js')));
+  s.init();
+  return s.init();
 }

@@ -27,7 +27,7 @@ describe('Supercollider', function() {
     opts.src = SOURCES;
     opts.dest = OUTPUT;
 
-    var s = Super.init(opts);
+    var s = Super(opts);
 
     s.on('finish', done);
   });
@@ -36,7 +36,7 @@ describe('Supercollider', function() {
     var opts = extend({}, CONFIG);
 
     var s = vfs.src(SOURCES)
-      .pipe(Super.init(opts))
+      .pipe(Super(opts))
       .pipe(vfs.dest(OUTPUT));
 
     s.on('finish', done);
