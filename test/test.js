@@ -1,6 +1,6 @@
 var extend = require('util')._extend;
 var mocha  = require('mocha');
-var rimraf = require('rimraf');
+var rimraf = require('rimraf').sync;
 var Super  = require('../index');
 var vfs    = require('vinyl-fs');
 
@@ -18,8 +18,8 @@ var CONFIG = {
 }
 
 describe('Supercollider', function() {
-  afterEach(function(done) {
-    rimraf(OUTPUT, done);
+  afterEach(function() {
+    // rimraf(OUTPUT)
   });
 
   it('works as a standalone plugin', function(done) {
