@@ -4,7 +4,7 @@ var mocha  = require('mocha');
 var rimraf = require('rimraf');
 var vfs    = require('vinyl-fs');
 
-var SOURCES = './test/fixtures/*.md';
+var SOURCES = './test/fixtures/**/*.md';
 var OUTPUT  = './test/_build';
 
 var CONFIG = {
